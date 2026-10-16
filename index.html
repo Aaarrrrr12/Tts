@@ -488,9 +488,11 @@
   buildChips('chHari', HARI, 'hari', false);
 
   function composeMsg() {
-    let m = 'Aku buka Kotak ' + chosen + ', dapat VC! 🎉 ' + HARI_TXT[sel.hari];
-    if (retriesUsed > 0) m += ' (Tadi sempat coba ulang ' + retriesUsed + 'x, tetep VC 😝)';
-    return m;
+    const total = retriesUsed + 1;
+    const m = (total > 1)
+      ? 'Aku buka kotak ' + total + ' kali, dapetnya VC terus! 🎉 '
+      : 'Aku dapetnya VC! 🎉 ';
+    return m + HARI_TXT[sel.hari];
   }
 
   const send = $('send');
